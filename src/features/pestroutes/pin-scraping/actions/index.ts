@@ -50,15 +50,15 @@ export async function fetchKnockingReport({
   });
   const html = await salesRes.text();
   const match = html.match(
-    /pendo\.initialize\(\s*\{\s*visitor:\s*\{\s*id:\s*"([^"]+)"/m
+    /pendo\.initialize\(\s*\{\s*visitor:\s*\{\s*id:\s*"([^"]+)"/m,
   );
   if (!match) throw new Error("Could not find Pendo visitor ID");
   const employeeId = match[1].split("-")[1];
 
   //  Fetch knocking report CSV
   const form = new URLSearchParams({
-    "dateRange-officeParams": "01/01/2025 - 12/31/2025",
-    persistedDateRange: "01/01/2025-12/31/2025",
+    "dateRange-officeParams": "01/01/2026 - 12/31/2026",
+    persistedDateRange: "01/01/2026-12/31/2026",
     employees: employeeId,
     officeIDs: "1",
     advanceToggle: "false",
